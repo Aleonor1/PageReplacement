@@ -7,7 +7,7 @@ public class Bankers {
 
 	private void input() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter no. of processes and resources : ");
+		System.out.print("Enter no. of processes: ");
 		np = sc.nextInt();
 		nr = 1; 
 		need = new int[np][nr]; 
@@ -50,7 +50,7 @@ public class Bankers {
 	}
 
 	public void isSafe(int a) {
-		input();
+		//input();
 		avail[0][0] = a;
 		int aux = avail[0][0];
 		calc_need();
@@ -74,14 +74,16 @@ public class Bankers {
 		{
 			System.out.println("\nSafely allocated");
 			System.out.println(aux);
+			System.exit(0);
 		} else
 			System.out.println("All proceess cant be allocated safely");
 	}
 
 	public static void main(String[] args) {
 		Bankers a = new Bankers();
-		for (int i = 0; i < 1000; i++) {
-			a.isSafe(1);
+		a.input();
+		for (int i=0;i<10000;i++) {
+			a.isSafe(i);
 		}
 	}
 }
